@@ -23,3 +23,10 @@ jobs:
         python -m pip install requests
     - name: Run app.py
       run: python app.py
+      
+    - uses: DamianReeves/write-file-action
+      with:
+        path: written_by_action.md
+        contents: |
+          echo "Hello World!"
+        write-mode: append
