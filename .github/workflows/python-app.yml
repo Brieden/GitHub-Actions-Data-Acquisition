@@ -23,8 +23,8 @@ jobs:
         python -m pip install requests
     - name: Run app.py
       run: python app.py
-      
-    - uses: DamianReeves/write-file-action
+    - name: Write file
+      uses: DamianReeves/write-file-action@v1
       with:
         path: written_by_action.md
         contents: |
