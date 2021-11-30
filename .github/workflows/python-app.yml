@@ -24,7 +24,6 @@ jobs:
     - name: Run app.py
       run: python app.py
     - name: Write File
-      run: |
-        git add .
-        git commit -m "Auto updating output"
-        git push
+      uses: actions/upload-artifact@v2
+      with:
+        path: total_cases_switzerland.csv
