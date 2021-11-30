@@ -23,7 +23,12 @@ jobs:
         python -m pip install requests
     - name: Run app.py
       run: python app.py
-    - name: Write File
-      uses: actions/upload-artifact@v2
+    - name: Commit files
+      run: |
+        git config --local user.email "sven.brieden@gmail.com"
+        git config --local user.name "Sven Brieden"
+        git commit -m "Add changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-        path: total_cases_switzerland.csv
+        github_token: ${{ secrets.GH_TOKEN }}
